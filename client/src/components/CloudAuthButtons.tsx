@@ -1,22 +1,30 @@
 import React from 'react';
+import { GoogleLogin } from 'react-oauth/google';
+import { MicrosoftLogin } from 'react-oauth/microsoft';
 
 const CloudAuthButtons: React.FC = () => {
-  const handleGoogleAuth = () => {
+  const handleGoogleAuth = (response: any) => {
+    console.log(response);
     // Implement Google OAuth logic here
   };
 
-  const handleMicrosoftAuth = () => {
+  const handleMicrosoftAuth = (response: any) => {
+    console.log(response);
     // Implement Microsoft OAuth logic here
   };
 
   return (
     <div className="cloud-auth-buttons">
-      <button onClick={handleGoogleAuth} className="google-auth-button">
-        Sign in with Google
-      </button>
-      <button onClick={handleMicrosoftAuth} className="microsoft-auth-button">
-        Sign in with Microsoft
-      </button>
+      <GoogleLogin
+        onSuccess={handleGoogleAuth}
+        onError={() => {
+          console.log('Google Login Failed');
+        }}
+      />
+      <MicrosoftLogin
+        clientId="YOUR_MICROSOFT_CLIENT_ID"
+        authCallback={handleMicrosoftAuth}
+      />
     </div>
   );
 };
