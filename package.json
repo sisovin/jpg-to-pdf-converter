@@ -1,0 +1,20 @@
+{
+  "name": "jpg-to-pdf-converter",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "client",
+    "server"
+  ],
+  "scripts": {
+    "build": "lerna run build",
+    "start": "lerna run start",
+    "test": "lerna run test"
+  },
+  "devDependencies": {
+    "typescript": "^4.0.0",
+    "eslint": "^7.0.0",
+    "prettier": "^2.0.0",
+    "lerna": "^3.0.0"
+  }
+}
